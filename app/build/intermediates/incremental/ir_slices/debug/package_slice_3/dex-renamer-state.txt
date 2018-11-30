@@ -1,0 +1,4 @@
+#Fri Nov 30 13:00:00 IST 2018
+base.0=/Users/vikesh/AndroidStudioProjects/Vee/app/build/intermediates/transforms/dexMerger/debug/3
+path.0=classes.dex
+renamed.0=classes.dex

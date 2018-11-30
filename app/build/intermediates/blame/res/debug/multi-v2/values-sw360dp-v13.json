@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/vikesh/AndroidStudioProjects/Vee/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw360dp-v13/values-sw360dp-v13.xml",
+            "map": [
+                {
+                    "source": "/Users/vikesh/AndroidStudioProjects/Vee/app/src/main/res/values-sw360dp/dimens.xml",
+                    "from": {
+                        "startLines": "13,9,10,8,4,5,3,12",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "364,231,276,188,98,142,56,322",
+                        "endColumns": "42,44,44,42,43,43,41,41",
+                        "endOffsets": "402,271,316,226,137,181,93,359"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,98,143,188,231,275,319,361",
+                        "endColumns": "42,44,44,42,43,43,41,41",
+                        "endOffsets": "93,138,183,226,270,314,356,398"
+                    }
+                }
+            ]
+        }
+    ]
+}

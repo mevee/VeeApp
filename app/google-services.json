@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "295185135682",
+    "firebase_url": "https://veefirebaseproject.firebaseio.com",
+    "project_id": "veefirebaseproject",
+    "storage_bucket": "veefirebaseproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295185135682:android:3042695b40094b57",
+        "android_client_info": {
+          "package_name": "com.example.vee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295185135682-thnt7dmu8hbdqnoltabr3t1grqmgk0ln.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vee",
+            "certificate_hash": "6ccbfd74dac5afd8b2c813957028bfd321efc274"
+          }
+        },
+        {
+          "client_id": "295185135682-mku7eou89f8k03fd1fdslnnikd0prtra.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJDQRGkkEIfD1DsA_dzsXPYQNNLyPWMuA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295185135682-mku7eou89f8k03fd1fdslnnikd0prtra.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

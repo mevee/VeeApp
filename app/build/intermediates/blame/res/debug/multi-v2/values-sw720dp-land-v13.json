@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/vikesh/AndroidStudioProjects/Vee/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw720dp-land-v13/values-sw720dp-land-v13.xml",
+            "map": [
+                {
+                    "source": "/Users/vikesh/.gradle/caches/transforms-1/files-1.1/lib-2.2.0.aar/f02dc1bf137d5470a9bd80ac7b9cb12f/res/values-sw720dp-land/values-sw720dp-land.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "200",
+                        "endColumns": "66",
+                        "endOffsets": "262"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    }
+                }
+            ]
+        }
+    ]
+}

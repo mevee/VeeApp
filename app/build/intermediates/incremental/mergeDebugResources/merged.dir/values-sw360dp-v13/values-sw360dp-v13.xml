@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="heightimage">64dp</dimen>
+    <dimen name="leftmargin_10">10dp</dimen>
+    <dimen name="leftmargin_20">20dp</dimen>
+    <dimen name="leftmargin_5">5dp</dimen>
+    <dimen name="topmargin_10">10dp</dimen>
+    <dimen name="topmargin_20">20dp</dimen>
+    <dimen name="topmargin_5">5dp</dimen>
+    <dimen name="widthimage">64dp</dimen>
+</resources>
