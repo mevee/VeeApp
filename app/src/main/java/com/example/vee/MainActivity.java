@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import com.example.vee.daggertest.DataInterface;
 import com.example.vee.daggertest.Users;
+import com.example.vee.test.MyComponent;
+import com.example.vee.test.Vehical;
 import com.example.vee.views.FragmentHome;
 import com.example.vee.views.FragmentSignUp;
 import com.example.vee.views.FragmentSignin;
@@ -35,8 +37,15 @@ import retrofit2.Retrofit;
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
 
+    //    @Inject
+//    Vehical vehical;
     @Inject
     Retrofit retrofit;
+    @Inject
+    FirebaseAuth myAuth;
+    @Inject
+    FirebaseUser user;
+
     private ProgressDialog progressDialog;
     private FirebaseAuth mAuth;
 
@@ -45,12 +54,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ((MyApplication) getApplication()).getNetComponent().inject(this);
 
-//        FirebaseApp.initializeApp(getApplicationContext());
+        ((MyApplication) getApplication()).getNetComponent().inject(this);
+//       if (vehical!=null){
+//           Log.d(TAG,"111");
+//       }
+//
+//        if (myAuth != null) {
+////           Log.d(TAG,"111"+myAuth.getCurrentUser().getDisplayName());
+//        }
+        if (myAuth == null) {
+            Log.d(TAG, "auth" + ":null");
+        } else if (user != null)
+            Log.d(TAG, "auth1" + user.getEmail() + "dn" + user.getPhoneNumber());
 
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser() == null) {
+//            Log.d(TAG, "222" + mAuth.getCurrentUser().getDisplayName());
             showSignInFragment();
         } else {
             showHomeFragment();
@@ -68,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<Users>> call, Response<List<Users>> response) {
                 List<Users> heroList = response.body();
                 String[] heroes = new String[heroList.size()];
-                Log.d(TAG,"hhhh"+heroList.get(1).getEmail());
-
+                for (int i = 0; i < heroList.size(); i++)
+                    Log.d(TAG, "hhhh" + heroList.get(i).getEmail());
             }
 
             @Override
