@@ -26,7 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
  */
 public class FragmentSignUp extends Fragment {
     public static final String TAG = "FragmentSignUp";
-    private EditText email, password;
+    private EditText email, password,username;
     private View rootView, login;
     private FirebaseAuth mAuth;
 
@@ -45,14 +45,20 @@ public class FragmentSignUp extends Fragment {
         email = rootView.findViewById(R.id.email_su);
         password = rootView.findViewById(R.id.password_su);
         login = rootView.findViewById(R.id.btn_signup_su);
-
+        username =rootView.findViewById(R.id.username_su);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String emails = email.getText().toString();
                 String passord = password.getText().toString();
+                String usernamestring = username.getText().toString();
 
-                ((MainActivity)getActivity()).signUpWithNewuser(emails,passord);
+                if (usernamestring==null){
+                    username.requestFocus();
+                    username.setError("please enter user name");
+                }
+                else
+                ((MainActivity)getActivity()).signUpWithNewuser(emails,passord,usernamestring);
             }
         });
 

@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class FragmentD extends Fragment {
     public static final String TAG="FragmentD";
     private View mView;
-    private Button signOut;
+
     private FirebaseAuth mAuth;
 
     public FragmentD() {
@@ -36,15 +36,7 @@ public class FragmentD extends Fragment {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_fragment_d, container, false);
 //        FirebaseApp.initializeApp(getContext());
-        mAuth = FirebaseAuth.getInstance();
-        signOut =mView.findViewById(R.id.btn_signout);
-        signOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               SignOut();
-                ((MainActivity)getActivity()).showSignInFragment();
-            }
-        });
+
 
         return mView;
     }
@@ -52,11 +44,6 @@ public class FragmentD extends Fragment {
         Toast.makeText(getContext(), "" + msg, Toast.LENGTH_SHORT).show();
     }
 
-    public void SignOut() {
-        if (mAuth != null) {
-            mAuth.signOut();
-            showToast("sign out succesfully");
-        }
-    }
+
 
 }

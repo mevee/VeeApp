@@ -5,15 +5,11 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     tools:context="views.FragmentD">
-
-    <Button
-        android:id="@+id/btn_signout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/signout"
-        android:background="@color/colorAccent"
-        android:textColor="#fff"/>
-
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:text="fragment_3"
+    />
 
 </FrameLayout>

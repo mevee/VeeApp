@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/acc_setting"
+        android:id="@+id/acc_setting_menu"
         android:title="@string/account_settings"></item>
 
     <item
-        android:id="@+id/new_friend"
+        android:id="@+id/new_friend_menu"
         android:title="@string/new_friend"></item>
     <item
-        android:id="@+id/signout"
+        android:id="@+id/signout_menu"
         android:title="@string/signout"></item>
 
 </menu>

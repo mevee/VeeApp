@@ -11,14 +11,15 @@ import dagger.Provides;
 @Module
 public class AppModule {
     private Application mAplication;
-@Inject
+
+    @Inject
     public AppModule(Application mAplication) {
         this.mAplication = mAplication;
     }
 
     @Provides
     @Singleton
-    public Application getApllication(){
+    public Application getApllication() {
         return mAplication;
     }
 }

@@ -11,8 +11,12 @@ import android.widget.Toast;
 
 import com.example.vee.daggertest.DataInterface;
 import com.example.vee.daggertest.Users;
+import com.example.vee.database.DbConstants;
+import com.example.vee.database.DbSchema;
+import com.example.vee.database.User;
 import com.example.vee.test.MyComponent;
 import com.example.vee.test.Vehical;
+import com.example.vee.views.AccountSettingsFragment;
 import com.example.vee.views.FragmentHome;
 import com.example.vee.views.FragmentSignUp;
 import com.example.vee.views.FragmentSignin;
@@ -24,6 +28,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -37,14 +43,11 @@ import retrofit2.Retrofit;
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
 
-    //    @Inject
-//    Vehical vehical;
+
     @Inject
     Retrofit retrofit;
-    @Inject
-    FirebaseAuth myAuth;
-    @Inject
-    FirebaseUser user;
+
+
 
     private ProgressDialog progressDialog;
     private FirebaseAuth mAuth;
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d(TAG,"Oncreate");
 
 
         ((MyApplication) getApplication()).getNetComponent().inject(this);
@@ -63,18 +67,19 @@ public class MainActivity extends AppCompatActivity {
 //        if (myAuth != null) {
 ////           Log.d(TAG,"111"+myAuth.getCurrentUser().getDisplayName());
 //        }
-        if (myAuth == null) {
-            Log.d(TAG, "auth" + ":null");
-        } else if (user != null)
-            Log.d(TAG, "auth1" + user.getEmail() + "dn" + user.getPhoneNumber());
-
+//        if (myAuth == null) {
+//            Log.d(TAG, "auth" + ":null");
+//        } else if (user != null)
+//            Log.d(TAG, "auth1" + user.getEmail() + "dn" + user.getPhoneNumber());
+//
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser() == null) {
-//            Log.d(TAG, "222" + mAuth.getCurrentUser().getDisplayName());
+
             showSignInFragment();
         } else {
             showHomeFragment();
         }
+//        Log.d(TAG,"after mAuthinitialization");
 
         getHeroes();
     }
@@ -152,6 +157,15 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
+    public void showSettingsFragment() {
+        AccountSettingsFragment accountSettingsFragment = new AccountSettingsFragment();
+
+        getSupportFragmentManager().beginTransaction()
+                .addToBackStack(AccountSettingsFragment.TAG)
+                .replace(R.id.all_fragments, accountSettingsFragment, AccountSettingsFragment.TAG)
+                .commit();
+    }
+
     public void loginWithPasswordAndEmail(String email, String passWord) {
 
         if (email == null || email.isEmpty() || passWord == null || passWord.isEmpty()) {
@@ -185,9 +199,9 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    public void signUpWithNewuser(String email, String passWord) {
+    public void signUpWithNewuser(String email, String passWord, final String username) {
 
-        if (email == null || email.isEmpty() || passWord == null || passWord.isEmpty()) {
+        if (email == null || email.isEmpty() || passWord == null || passWord.isEmpty()|| username == null || username.isEmpty()) {
             showToast(getString(R.string.blank_mail_pass));
             return;
         }
@@ -201,6 +215,13 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            DatabaseReference myRef =FirebaseDatabase.getInstance().getReference(DbConstants.USERS).child(mAuth.getUid());
+                            User users =new User();
+                            users.setName(username);
+                            users.setUid(user.getUid());
+                            users.setEmail(user.getEmail());
+                            myRef.setValue(users);
+
                             showToast("UserWithEmail:success");
                             showSignInFragment();
 
@@ -210,7 +231,6 @@ public class MainActivity extends AppCompatActivity {
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             showToast("" + task.getException().getMessage());
                         }
-
 
                     }
                 });
