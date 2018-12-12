@@ -8,6 +8,9 @@
         android:id="@+id/new_friend_menu"
         android:title="@string/new_friend"></item>
     <item
+        android:id="@+id/myid_menu"
+        android:title="@string/my_id"></item>
+    <item
         android:id="@+id/signout_menu"
         android:title="@string/signout"></item>
 

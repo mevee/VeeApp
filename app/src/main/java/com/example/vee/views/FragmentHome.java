@@ -35,6 +35,7 @@ public class FragmentHome extends Fragment {
     private View mView;
     private FirebaseUser user;
     private FirebaseAuth mAuth;
+    private static boolean b;
 //    @Inject
 //    FirebaseDatabase database;
 
@@ -55,7 +56,7 @@ public class FragmentHome extends Fragment {
 
         viewPager.setAdapter(new PagerAdapter(getChildFragmentManager(), 3));
 
-        viewPager.setCurrentItem(2);
+//        viewPager.setCurrentItem(2);
         toolbar = mView.findViewById(R.id.toolbar_home);
         toolbar.setLogo(getContext().getResources().getDrawable(R.drawable.ic_person_placeholder_24dp));
         toolbar.setTitle("OEMApp");
@@ -71,6 +72,11 @@ public class FragmentHome extends Fragment {
                     ((MainActivity) getActivity()).SignOut();
                     getFragmentManager().popBackStack();
                     ((MainActivity)getActivity()).showSignInFragment();
+                    Log.d(TAG,"signout_menu");
+                }
+                if (item.getItemId() == R.id.myid_menu) {
+                    ((MainActivity) getActivity()).showMyIdFragment();
+
                     Log.d(TAG,"signout_menu");
                 }
                 if (item.getItemId() == R.id.new_friend_menu) {

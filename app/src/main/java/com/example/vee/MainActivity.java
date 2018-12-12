@@ -20,6 +20,7 @@ import com.example.vee.views.AccountSettingsFragment;
 import com.example.vee.views.FragmentHome;
 import com.example.vee.views.FragmentSignUp;
 import com.example.vee.views.FragmentSignin;
+import com.example.vee.views.MyId;
 import com.google.android.gms.common.api.Api;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -163,6 +164,13 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(AccountSettingsFragment.TAG)
                 .replace(R.id.all_fragments, accountSettingsFragment, AccountSettingsFragment.TAG)
+                .commit();
+    }
+    public void showMyIdFragment() {
+        MyId myId = new MyId();
+        getSupportFragmentManager().beginTransaction()
+                .addToBackStack(myId.TAG)
+                .replace(R.id.all_fragments, myId, myId.TAG)
                 .commit();
     }
 

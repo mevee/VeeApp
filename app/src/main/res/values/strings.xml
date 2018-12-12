@@ -10,4 +10,5 @@
     <string name="signin">signin</string>
     <string name="account_settings">Account Settings</string>
     <string name="new_friend">new friend</string>
+    <string name="my_id">My ID</string>
 </resources>
