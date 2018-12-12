@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 //            public void run() {
 //                doubleBackToExitPressedOnce = false;
 //            }
-//        }, 2000);
+//        }, 1000);
 
     }
 
