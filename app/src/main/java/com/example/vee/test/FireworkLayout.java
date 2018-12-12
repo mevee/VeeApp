@@ -14,7 +14,7 @@ import android.view.SurfaceView;
 
 enum AnimateState
 {
-    asReady, asRunning, asPause;
+    asReady, asRunning, asPause
 }
 
 class Rocket

@@ -1,6 +1,8 @@
 package com.example.vee;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -44,21 +46,21 @@ import retrofit2.Retrofit;
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
 
-
     @Inject
     Retrofit retrofit;
 
-
-
     private ProgressDialog progressDialog;
     private FirebaseAuth mAuth;
+    private boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(TAG,"Oncreate");
+        Log.d(TAG, "Oncreate");
 
+//        Intent intent = new Intent(this, HelloService.class);
+//        startService(intent);
 
         ((MyApplication) getApplication()).getNetComponent().inject(this);
 //       if (vehical!=null){
@@ -112,6 +114,17 @@ public class MainActivity extends AppCompatActivity {
         if (count <= 0) {
             finish();
         }
+
+//        this.doubleBackToExitPressedOnce = true;
+//        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                doubleBackToExitPressedOnce = false;
+//            }
+//        }, 2000);
+
     }
 
     public void showLoader(Boolean cancelable) {
@@ -166,11 +179,12 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.all_fragments, accountSettingsFragment, AccountSettingsFragment.TAG)
                 .commit();
     }
+
     public void showMyIdFragment() {
         MyId myId = new MyId();
         getSupportFragmentManager().beginTransaction()
-                .addToBackStack(myId.TAG)
-                .replace(R.id.all_fragments, myId, myId.TAG)
+                .addToBackStack(MyId.TAG)
+                .replace(R.id.all_fragments, myId, MyId.TAG)
                 .commit();
     }
 
@@ -209,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void signUpWithNewuser(String email, String passWord, final String username) {
 
-        if (email == null || email.isEmpty() || passWord == null || passWord.isEmpty()|| username == null || username.isEmpty()) {
+        if (email == null || email.isEmpty() || passWord == null || passWord.isEmpty() || username == null || username.isEmpty()) {
             showToast(getString(R.string.blank_mail_pass));
             return;
         }
@@ -223,8 +237,8 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            DatabaseReference myRef =FirebaseDatabase.getInstance().getReference(DbConstants.USERS).child(mAuth.getUid());
-                            User users =new User();
+                            DatabaseReference myRef = FirebaseDatabase.getInstance().getReference(DbConstants.USERS).child(mAuth.getUid());
+                            User users = new User();
                             users.setName(username);
                             users.setUid(user.getUid());
                             users.setEmail(user.getEmail());

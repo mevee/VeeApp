@@ -38,7 +38,7 @@ public class FragmentC extends Fragment {
         mView = inflater.inflate(R.layout.fragment_fragment_c, container, false);
         fireworkLayout = new FireworkLayout(getContext());
         btnPlay = mView.findViewById(R.id.paly_d);
-        final RelativeLayout surface = (RelativeLayout) mView.findViewById(R.id.relativeHolder);
+        final RelativeLayout surface = mView.findViewById(R.id.relativeHolder);
 
         Log.d(TAG, "child_count" + surface.getChildCount());
         btnPlay.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +64,7 @@ public class FragmentC extends Fragment {
                 dialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        RelativeLayout surface = (RelativeLayout) mView.findViewById(R.id.relativeHolder);
+                        RelativeLayout surface = mView.findViewById(R.id.relativeHolder);
 
                         if (FragmentC.b == true) {
                             surface.removeView(fireworkLayout);

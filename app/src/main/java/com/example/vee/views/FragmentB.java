@@ -22,11 +22,9 @@ public class FragmentB extends Fragment {
     private View mView;
     private RecyclerView recyclerView;
 
-
     public FragmentB() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
