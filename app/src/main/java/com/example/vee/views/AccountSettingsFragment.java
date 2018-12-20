@@ -30,6 +30,7 @@ public class AccountSettingsFragment extends Fragment {
     private FirebaseAuth auth;
     private DatabaseReference df;
 
+
     public AccountSettingsFragment() {
         // Required empty public constructor
     }
@@ -41,7 +42,6 @@ public class AccountSettingsFragment extends Fragment {
         // Inflate the layout for this fragment
         mView =inflater.inflate(R.layout.fragment_account_settings, container, false);
         init();
-
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override

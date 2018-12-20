@@ -19,6 +19,7 @@ import com.example.vee.database.User;
 import com.example.vee.test.MyComponent;
 import com.example.vee.test.Vehical;
 import com.example.vee.views.AccountSettingsFragment;
+import com.example.vee.views.ChatFragment;
 import com.example.vee.views.FragmentHome;
 import com.example.vee.views.FragmentSignUp;
 import com.example.vee.views.FragmentSignin;
@@ -162,9 +163,20 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
+    public void showChatFragment(String id, String username) {
+        Bundle bundle = new Bundle();
+        bundle.putString("id", id);
+        bundle.putString("username", username);
+        ChatFragment signinFragment = new ChatFragment();
+        signinFragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction()
+                .addToBackStack(ChatFragment.TAG)
+                .replace(R.id.all_fragments, signinFragment, ChatFragment.TAG)
+                .commit();
+    }
+
     public void showHomeFragment() {
         FragmentHome homeFragment = new FragmentHome();
-
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(FragmentHome.TAG)
                 .replace(R.id.all_fragments, homeFragment, FragmentHome.TAG)
