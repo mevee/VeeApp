@@ -13,13 +13,6 @@
         android:visibility="gone">
     </android.support.v7.widget.RecyclerView>
 
-    <RelativeLayout
-        android:id="@+id/relativeHolder"
-        android:layout_width="match_parent"
-        android:layout_height="380dp"
-        android:background="@android:color/holo_red_dark"
-        android:orientation="vertical">
-    </RelativeLayout>
     <Button
         android:id="@+id/paly_d"
         android:layout_width="wrap_content"

@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "Oncreate");
+        FirebaseApp.initializeApp(this);
 
 //        Intent intent = new Intent(this, HelloService.class);
 //        startService(intent);
